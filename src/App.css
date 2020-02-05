@@ -1,0 +1,21 @@
+.signindiv {
+  margin: 10% auto;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+#signinanchor {
+  color: blue;
+  border-bottom: 1px solid blue;
+}
+#signinanchor:hover {
+  color: black;
+  border-bottom: 1px solid black;
+}
+
+.formrow {
+  margin-top: 8%;
+}
+
