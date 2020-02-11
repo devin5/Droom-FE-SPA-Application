@@ -1,13 +1,10 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  min-height: 100vh;
+  background: rgb(20, 247, 229);
+  background: radial-gradient(
+    circle,
+    rgba(20, 247, 229, 1) 0%,
+    rgba(66, 116, 175, 1) 100%
+  );
+  font-family: 'Fresca', sans-serif;
 }

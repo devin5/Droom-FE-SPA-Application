@@ -22,6 +22,7 @@ export const registerEmployer = user => {
         console.log("im res from employer register", res);
         dispatch({ type: REGISTER_SUCCESS, payload: res.data });
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("id", res.data.id);
         history.push(`/employer/profile/${res.data.id}`);
       })
       .catch(error => {
@@ -38,6 +39,7 @@ export const registerEmployee = user => {
       .then(res => {
         dispatch({ type: REGISTER_SUCCESS, payload: res.data });
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("id", res.data.id);
         history.push(`/employee/profile/${res.data.id}`);
       })
       .catch(error => {
@@ -54,6 +56,7 @@ export const signEmployer = user => {
       .then(res => {
         dispatch({ type: SIGN_SUCCESS, payload: res.data });
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("id", res.data.id);
         history.push(`/employer/profile/${res.data.id}`);
       })
       .catch(error => {
@@ -70,6 +73,7 @@ export const signEmployee = user => {
       .then(res => {
         dispatch({ type: SIGN_SUCCESS, payload: res.data });
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("id", res.data.id);
         history.push(`/employee/profile/${res.data.id}`);
       })
       .catch(error => {
@@ -105,9 +109,39 @@ export const getEmployerProfile = id => {
       });
   };
 };
+export const getEmployeesArray = () => {
+  return dispatch => {
+    dispatch({ type: LOADING });
+    axiosWithAuth()
+      .get(employeeProfilePoint)
+      .then(res => {
+        console.log("im the ...", res);
+        dispatch({ type: ARR_SUCCESS, payload: res.data });
+      })
+      .catch(error => {
+        dispatch({ type: ERROR, payload: error });
+      });
+  };
+};
+
+export const getEmployersArray = () => {
+  return dispatch => {
+    dispatch({ type: LOADING });
+    axiosWithAuth()
+      .get(employerProfilePoint)
+      .then(res => {
+        console.log("im the ...", res);
+        dispatch({ type: ARR_SUCCESS, payload: res.data });
+      })
+      .catch(error => {
+        dispatch({ type: ERROR, payload: error });
+      });
+  };
+};
 
 export const LOADING = "LOADING";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const ERROR = "ERROR";
 export const SIGN_SUCCESS = "SIGN_SUCCESS";
-export const PRO_SUCCESS = "EMP_PRO_SUCCESS";
+export const PRO_SUCCESS = "PRO_SUCCESS";
+export const ARR_SUCCESS = "ARR_SUCCESS";

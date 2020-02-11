@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
-import { useLocation } from "react-router-dom";
+import { Button, Form, FormGroup, Label, Input, Row, Col } from "reactstrap";
+import { useLocation, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { registerEmployee } from "../../actions/index";
 import Loading from "../mixins/Loading";
+import { states } from "../../states";
 
 function EmployeeRegistration(props) {
   const [form, setForm] = useState({});
   let location = useLocation();
-
-
+  let history = useHistory();
 
   const handleChange = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -18,9 +18,7 @@ function EmployeeRegistration(props) {
   const submit = e => {
     const obj = { ...form, ...location.state };
     props.registerEmployee({ ...form, ...location.state });
-
   };
-
 
   return (
     <>
@@ -29,51 +27,99 @@ function EmployeeRegistration(props) {
       ) : (
         <div className="signindiv">
           <Form>
-            <FormGroup>
-              <Label for="firstName">First Name</Label>
-              <Input
-                type="text"
-                name="firstName"
-                id="firstName"
-                placeholder="First Name"
-                onChange={handleChange}
-                value={form.firstName}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="lastName">Last Name Name</Label>
-              <Input
-                type="text"
-                name="lastName"
-                id="lastName"
-                placeholder="Last Name"
-                onChange={handleChange}
-                value={form.lastName}
-              />
-            </FormGroup>
+            <Row form>
+              <Col md={6}>
+                <FormGroup>
+                  <Label for="firstName">First Name</Label>
+                  <Input
+                    type="text"
+                    name="firstName"
+                    id="firstName"
+                    placeholder="First Name"
+                    onChange={handleChange}
+                    value={form.firstName}
+                  />
+                </FormGroup>
+              </Col>
+              <Col md={6}>
+                <FormGroup>
+                  <Label for="lastName">Last Name</Label>
+                  <Input
+                    type="text"
+                    name="lastName"
+                    id="lastName"
+                    placeholder="Last Name"
+                    onChange={handleChange}
+                    value={form.lastName}
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+            <Row form>
+              <Col md={6}>
+                <FormGroup>
+                  <Label for="city">City</Label>
+                  <Input
+                    type="text"
+                    name="city"
+                    id="city"
+                    placeholder="City"
+                    onChange={handleChange}
+                    value={form.city}
+                  />
+                </FormGroup>
+              </Col>
+              <Col md={6}>
+                <FormGroup>
+                  <Label for="state">State</Label>
+                  <Input
+                    type="select"
+                    placeholder="State"
+                    name="state"
+                    onChange={handleChange}
+                    value={form.state}
+                    id="state"
+                  >
+                    {states.map(item => (
+                      <option>{item}</option>
+                    ))}
+                  </Input>
+                </FormGroup>
+              </Col>
+            </Row>
+            <Row form>
+              <Col md={8}>
+                <FormGroup>
+                  <Label for="profession">Profession</Label>
+                  <Input
+                    type="text"
+                    name="profession"
+                    id="profession"
+                    placeholder="Profession"
+                    onChange={handleChange}
+                    value={form.profession}
+                  />
+                </FormGroup>
+              </Col>
+              <Col md={4}>
+                <FormGroup>
+                  <Label for="yearsIn">Years in profession</Label>
+                  <Input
+                    type="select"
+                    name="yearsIn"
+                    id="yearsIn"
+                    placeholder="Years in profession"
+                    onChange={handleChange}
+                    value={form.yearsIn}
+                  >
+                    {states.map((item, index) => (
+                      <option>{index}</option>
+                    ))}
+                  </Input>
+                </FormGroup>
+              </Col>
+            </Row>
 
-            <FormGroup>
-              <Label for="yearsIn">Years in profession</Label>
-              <Input
-                type="text"
-                name="yearsIn"
-                id="yearsIn"
-                placeholder="Years in profession"
-                onChange={handleChange}
-                value={form.yearsIn}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="profession">Profession</Label>
-              <Input
-                type="text"
-                name="profession"
-                id="profession"
-                placeholder="Profession"
-                onChange={handleChange}
-                value={form.profession}
-              />
-            </FormGroup>
             <FormGroup>
               <Label for="desiredTitle">Title Desired</Label>
               <Input
@@ -99,7 +145,7 @@ function EmployeeRegistration(props) {
             <FormGroup>
               <Label for="skills">Skills</Label>
               <Input
-                type="text"
+                type="textarea"
                 name="skills"
                 id="skills"
                 placeholder="Skills"
@@ -107,30 +153,14 @@ function EmployeeRegistration(props) {
                 value={form.skills}
               />
             </FormGroup>
-            <FormGroup>
-              <Label for="state">State</Label>
-              <Input
-                type="text"
-                name="state"
-                id="state"
-                placeholder="State"
-                onChange={handleChange}
-                value={form.state}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="city">City</Label>
-              <Input
-                type="text"
-                name="city"
-                id="city"
-                placeholder="City"
-                onChange={handleChange}
-                value={form.city}
-              />
-            </FormGroup>
 
-            <Button onClick={submit}>Submit</Button>
+            <Button id="signbutton" outline onClick={submit}>
+              Submit
+            </Button>
+
+            <Button id="signbutton" outline onClick={history.goBack}>
+              Go Back
+            </Button>
           </Form>
         </div>
       )}

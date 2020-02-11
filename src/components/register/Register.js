@@ -18,17 +18,13 @@ const Register = props => {
   };
 
   const handleEmployer = (e, bool) => {
-    setForm({...form , isEmployer: bool });
+    setForm({ ...form, isEmployer: bool });
   };
-
 
   return (
     <div className="signindiv">
       <Form>
-        <h1>Registration</h1>{" "}
-        <Link to="/" id="signinanchor">
-          already have an account ???
-        </Link>
+        <h1>Registration</h1> <Link to="/">already have an account ???</Link>
         <Row className="formrow" form>
           <Col md={6}>
             <FormGroup>
@@ -56,23 +52,26 @@ const Register = props => {
               />
             </FormGroup>
           </Col>
+          <Col id="col" md={6}>
+            <FormGroup>
+              <Label for="isEmployer">Account type</Label>
+              <Input
+                value={form.isEmployer}
+                type="select"
+                name="isEmployer"
+                id="isEmployer"
+                onChange={e => handleEmployer(e, !form.isEmployer)}
+              >
+                <option value={true}>employer</option>
+                <option value={false}>employee</option>
+              </Input>
+            </FormGroup>
+          </Col>
         </Row>
-        <FormGroup>
-          <Label for="isEmployer">Account type</Label>
-          <Input
-            value={form.isEmployer}
-            type="select"
-            name="isEmployer"
-            id="isEmployer"
-            onChange={e => handleEmployer(e, !form.isEmployer)}
-          >
-            <option value={true}>employer</option>
-            <option value={false}>employee</option>
-          </Input>
-        </FormGroup>
         <Button
+          id="signbutton"
+          outline
           onClick={() => {
-            
             history.push(path, form);
           }}
         >

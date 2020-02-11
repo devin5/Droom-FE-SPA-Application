@@ -9,21 +9,25 @@ function EmployerProfile(props) {
   useEffect(() => {
     props.getEmployerProfile(id);
   }, []);
-  console.log("im the profile", props.profile);
+  console.log("im the user", props.user);
+  console.log("im the ", props.profile);
+
   return (
     <>
-      <h1>username: {props.profile.username}</h1>
-      <h1>isEmployer: {props.profile.isEmployer}</h1>
-      <h1>First Name: {props.profile.coName}</h1>
-      <h1>Last Name: {props.profile.proffession}</h1>
-      <h1>Years in: {props.profile.openPostions}</h1>
-      <h1>profession: {props.profile.benifets}</h1>
-      <h1>desired title {props.profile.mission}</h1>
-      <h1>skills {props.profile.imgUrl}</h1>
-      <h1>city {props.profile.city}</h1>
-      <h1>State: {props.profile.state}</h1>
-      {/* <button onClick={() => history.push("/test")}>see Employee's</button> */}
-      <Link to="/test">see Employee's</Link>
+      <div className="profile">
+        <h1>Employer Profile</h1>
+        <h1>usernae: {props.profile.username}</h1>
+        <h1>isEmployer: {props.profile.isEmployer ? "yes" : "no"}</h1>
+        <h1>CO Name: {props.profile.coName}</h1>
+        <h1>Profession: {props.profile.proffession}</h1>
+        <h1>open Positions: {props.profile.openPostions}</h1>
+        <h1>Benefiets: {props.profile.benifets}</h1>
+        <h1>Mission Statement{props.profile.mission}</h1>
+        <img src={props.profile.imgUrl} alt="avatar image for user" />
+        <h1>city {props.profile.city}</h1>
+        <h1>State: {props.profile.state}</h1>
+      </div>
+      <Link to={`/employee/list/${id}`}>see Employee's</Link>
     </>
   );
 }

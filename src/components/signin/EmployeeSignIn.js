@@ -9,7 +9,7 @@ const EmployeeSignin = props => {
   const handleChange = e =>
     setForm({ ...form, [e.target.name]: e.target.value });
   return (
-    <Form>
+    <Form className="employerSign">
       <h1>Employee sign in</h1>{" "}
       <a id="signinanchor" onClick={() => props.setBool(bool => !bool)}>
         Employers sign in here !!!
@@ -45,8 +45,14 @@ const EmployeeSignin = props => {
         <Label for="exampleCheck" check>Check me out</Label>
       </FormGroup> */}
       <div className="registerFlex">
-        <Button onClick={() => props.signEmployee(form)}>Sign in</Button>{" "}
-        <Link to="/register">need an account??</Link>
+        <Button
+          id="signbutton"
+          outline
+          onClick={() => props.signEmployee(form)}
+        >
+          Sign in
+        </Button>{" "}
+        <Link className="signlink" to="/register">need an account??</Link>
       </div>
     </Form>
   );

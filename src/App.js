@@ -6,12 +6,18 @@ import EmployerRegistration from "./components/register/EmployerRegistration";
 import EmployeeRegistration from "./components/register/EmployeeRegistration";
 import EmployeeProfile from "./components/profile/EmployeeP";
 import EmployerProfile from "./components/profile/EmployerP";
+import EmployeeDisplay from "./components/Cards/EmployeeDisplay";
+import EmployerDisplay from "./components/Cards/EmployerDisplay";
+import Header from './components/mixins/Header'
+
+import ProtectedRoute from "./utils/ProtectedRoute";
 import "./App.css";
 import { Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
+    <Header />
       <Route exact path="/">
         <SignIn />
       </Route>
@@ -24,12 +30,17 @@ function App() {
       <Route exact path="/reg/employee">
         <EmployeeRegistration />
       </Route>
-      <Route path="/employee/profile/:id">
-        <EmployeeProfile />
-      </Route>
-      <Route path="/employer/profile/:id">
-        <EmployerProfile />
-      </Route>
+
+      <ProtectedRoute
+        path="/employee/profile/:id"
+        component={EmployeeProfile}
+      />
+      <ProtectedRoute
+        path="/employer/profile/:id"
+        component={EmployerProfile}
+      />
+      <ProtectedRoute path="/employee/list/:id" component={EmployeeDisplay} />
+      <ProtectedRoute path="/employer/list/:id" component={EmployerDisplay} />
       <Route path="/test">
         <Test />
       </Route>

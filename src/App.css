@@ -1,5 +1,37 @@
+/* header */
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  margin: 3%;
+  display: flex;
+  align-items: center;
+}
+.header h1 {
+  font-family: "Permanent Marker", cursive;
+}
+.header img {
+  width: 8%;
+}
+.header button {
+  margin: 3%;
+}
+#logbutton {
+  border-color: #14f7e5;
+  color: #14f7e5;
+  width: 20%;
+}
+#logbutton:hover {
+  background-color: #14f7e5;
+  color: #4274af;
+}
+
+/* signin */
 .signindiv {
-  margin: 10% auto;
+  margin: 2% auto;
   width: 80%;
   display: flex;
   justify-content: center;
@@ -7,15 +39,70 @@
 }
 
 #signinanchor {
-  color: blue;
-  border-bottom: 1px solid blue;
+  color: #4274af;
+  border-bottom: 1px solid #4275af00;
 }
 #signinanchor:hover {
-  color: black;
-  border-bottom: 1px solid black;
+  color: #4274af;
+  border-bottom: 1px solid #4274af;
 }
 
+.employerSign h1 {
+  margin-bottom: 4%;
+}
+.employerSign p {
+  margin: 0 auto;
+  width: 50%;
+}
+#signbutton {
+  color: #4274af;
+  border: 1px solid #4274af;
+
+  margin-right: 5%;
+}
+#signbutton:hover {
+  color: #14f7e5;
+  background-color: #4274af;
+}
+
+.positions {
+  font-size: 0.7rem;
+}
+.signlink {
+  color: #4274af;
+}
+
+.signindiv a {
+  color: #4274af;
+}
+
+#col {
+  margin: 0 auto;
+}
 .formrow {
-  margin-top: 8%;
+  margin-top: 5%;
 }
 
+.backbutt {
+  margin-bottom: 15%;
+}
+.spincontain {
+  text-align: center;
+  width: 100%;
+  margin: 0auto;
+}
+.spinner {
+  width: 90px;
+  height: 90px;
+  color: #4274af;
+}
+
+#cardImg {
+  margin-left: 35%;
+  margin-top: 10%;
+  width: 30%;
+}
+.center {
+  margin-top: 3%;
+  width: 100%;
+}

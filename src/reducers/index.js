@@ -4,13 +4,13 @@ import {
   LOADING,
   REGISTER_SUCCESS,
   SIGN_SUCCESS,
-  PRO_SUCCESS
+  PRO_SUCCESS,
+  ARR_SUCCESS
 } from "../actions";
 
 const initialState = {
   profile: {},
-  employers: [],
-  employees: [],
+  array: [],
   user: {},
   isLoading: false,
   error: null
@@ -49,6 +49,13 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         profile: action.payload[0],
+        isLoading: false,
+        error: null
+      };
+    case ARR_SUCCESS:
+      return {
+        ...state,
+        array: action.payload,
         isLoading: false,
         error: null
       };

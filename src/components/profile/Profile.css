@@ -1,0 +1,32 @@
+.profile {
+  text-align: right;
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+}
+.avatar {
+  width: 20%;
+  text-align: center;
+  font-size: 1.23rem;
+}
+
+.avatar img {
+  margin-bottom: 5%;
+  width: 100%;
+}
+.avatar h2 {
+  font-size: 1.2rem;
+}
+
+.profile h1 {
+  text-align: center;
+}
+.profile h2 {
+  margin-bottom: 5%;
+  font-weight: bold;
+}
+
+.procontent {
+  margin-top: 5%;
+  width: 80%;
+}
