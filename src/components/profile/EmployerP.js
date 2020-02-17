@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import Loading from "../mixins/Loading";
+import { Button } from "reactstrap";
 import { connect } from "react-redux";
 import { getEmployerProfile } from "../../actions/index";
 import { useHistory, useParams, Link } from "react-router-dom";
@@ -11,7 +13,44 @@ function EmployerProfile(props) {
   }, []);
   console.log("im the user", props.user);
   console.log("im the ", props.profile);
-
+  return (
+    <>
+      {props.isLoading ? (
+        <Loading />
+      ) : (
+        <div className="profile">
+          <div className="avatar">
+            <img src={props.profile.imgUrl} alt="" />
+            <p>{props.profile.coName}</p>
+            <p>
+              <span>City: </span>
+              {props.profile.city}
+            </p>
+            <p>
+              <span>State: </span>
+              {props.profile.state}
+            </p>
+          </div>
+          <div className="procontent">
+            <h2>Who are We ?</h2>
+            <p>Hello, we Are {props.profile.coName}</p>
+            <p> We are in the {props.profile.proffession} bussiness !</p>
+            <h3>What positions are we looking to fill?</h3>
+            <p> {props.profile.openPostions}</p>
+            <h3>What Benifets do we have?</h3>
+            <p>{props.profile.benifets}</p>
+            <Button
+              id="signbutton"
+              outline
+              onClick={() => history.push(`/employee/list/${id}`)}
+            >
+              Find Employee's
+            </Button>
+          </div>
+        </div>
+      )}
+    </>
+  );
   return (
     <>
       <div className="profile">

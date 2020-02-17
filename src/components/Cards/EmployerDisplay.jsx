@@ -48,11 +48,8 @@ function EmployerDisplay(props) {
         // onExiting={() => setAnimating(true)}
         // onExited={() => setAnimating(false)}
       >
-        <img
-          id="cardImg"
-          src="https://i.ya-webdesign.com/images/avatar-icon-png-17.png"
-          alt=""
-        />
+        <img id="cardImg" src={item.imgUrl} alt="" />
+
         <CarouselCaption
           //   className="text-danger"
 
@@ -96,11 +93,11 @@ background: linear-gradient(90deg, rgba(20,247,229,1) 0%, rgba(23,238,225,1) 0%,
       </div>
       <Button
         className="center"
-        id="signbutton"
+        id="backButton"
         outline
-        onClick={() => history.push(`/employee/profile/${id}}`)}
+        onClick={() => history.push(`/employee/profile/${id}`)}
       >
-        back
+        Back
       </Button>
 
       {/* {props.array.map((item, index, array) => (

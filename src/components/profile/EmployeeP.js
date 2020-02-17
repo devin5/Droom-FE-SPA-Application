@@ -8,6 +8,7 @@ import { Button } from "reactstrap";
 function EmployeeProfile(props) {
   let { id } = useParams();
   let history = useHistory();
+  console.log("id",id)
   useEffect(() => {
     props.getEmployeeProfile(id);
   }, []);
