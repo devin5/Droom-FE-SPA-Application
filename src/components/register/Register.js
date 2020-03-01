@@ -16,7 +16,7 @@ const Register = props => {
   const handleChange = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-
+  // ghello
   const handleEmployer = (e, bool) => {
     setForm({ ...form, isEmployer: bool });
   };
